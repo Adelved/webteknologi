@@ -1,0 +1,52 @@
+body{
+    width: 960px;
+    margin: 0 auto;
+    align-content: center;
+}
+
+ @media screen and (max-width: 600px){
+     body{
+         width: 100%;
+     }
+ }
+
+#parent{
+position: relative;
+padding: 25px;
+background-color: lightgray;
+}
+
+
+label{
+    padding: 10px;
+    display: inline-block;
+    width: 20%;
+    padding-bottom: 25px;
+}
+
+input{
+    border: none;
+    border-radius: 3px;
+ }
+
+select{
+    border-radius: 3px;
+}
+
+input[type=text], select{
+    padding: 5px;
+    width:40%;
+}
+
+
+
+ input[type=button]{
+     background-color: gray;
+     padding: 10px;
+
+ }
+
+ #button_div{
+     position: relative;
+     left: 770px;
+ }

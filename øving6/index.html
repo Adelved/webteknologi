@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <title>Tax form</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+
+        <h1>Tax form</h1>   
+<form action="http://folk.ntnu.no/michaedm/norwegian-tax-administration/receive.php" method="post" id="parent">
+
+    <fieldset>
+        <legend>Personal details</legend>
+        <div>
+            <label for="name">Real name</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+
+
+        <!--no required tag needed here, defaults to male-->
+        <div>
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender">
+                <option value="male">Male</option >
+                <option value="female">Female</option>
+            </select>
+        </div>
+        
+        <div>
+            <label for="mail">E-mail</label>
+
+            <input type="email" name="mail" id="mail" required>
+  
+        </div>
+
+        <div>
+            <label for="birthdate">Birthday</label>
+
+            <input type="date" name="birthdate" id="birthdate" max="1988-01-01" required>
+
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend>Hero details</legend>
+        <div>
+            <label for="hero">Hero name</label>
+            <input type="text" name="hero" id="hero" required>
+        </div>
+        <fieldset>
+            <legend>check if yes</legend>
+        <div>
+            <label for="spandex">Do you wear spandex?</label> 
+            <input type="checkbox" name="spandex" id ="spandex" required>
+
+        </div>
+        </fieldset>
+        <div>
+            <label for="strength">Strength</label>
+            <input type="number" name="strength" id="strength" min="1" max="10" required>
+        </div>
+
+        <div>
+            <label for="speed">Speed</label>
+            <input type="number" name="speed" id="speed" min="1" max="10" required>
+        </div>
+
+        <div>
+            <label for="intelligence">Intelligence</label>
+            <input type="number" name="intelligence" id="intelligence" min="1" max="10" required>
+        </div>
+
+    </fieldset>
+    <fieldset>
+        <legend>Finances</legend>
+        <div>
+            <label for="income">Income</label>
+            <input type="number" name="income" id="income" min="0" required>
+        </div>
+
+
+        <div>
+            <label for="wealth">Wealth</label>
+            <input type="number" name="wealth" id="wealth" min="0" required>
+        </div>
+
+
+        <div>
+            <label for="tax">Tax</label>
+            <input type="number" name="tax" id="tax" min="0" value="0" placeholder="0" disabled>
+        </div>
+
+        <div id="button_div">
+            <input type="button" name="submit" value="Submit tax form">    
+        </div>
+
+    </fieldset>
+
+</form>
+
+    <script src="calculate.js">
+        
+    </script>
+
+    </body>
+</html>

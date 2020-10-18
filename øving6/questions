@@ -1,0 +1,13 @@
+
+1. In binary floating point math, floats are represented as whole numbers times a power of two. In the case of 0.2(2/10) and 0.1 (1/10) 10 and 20 are not a power of two. Therefore, 0.1 and 0.2 cannot be represented exactly. Thus, the sum of 0.1 + 0.2 does not exactly equal 0.3 and might either be slightly smaller og larger.  
+
+2. The method defines which HTTP method to send the data with (GET or POST)
+
+3. The reason for the GET method appends the form fields in the URL is because this is the chosen way of communicating client-side information to the server for this method. Since the information is stored in the URL (which can be bookmarked and are stored in the browsing history), GET should never be used to send sensitve information.
+
+4. It is good practice to do validation on both client-side and server-side, however server-side validation is better. 
+Using only client-side validation may allow bad actors (with malicious intent) to bypass the client-side scripts and send
+possibly dangerous input to the server. One way they can do this is by disabling javascript tin the browser, which most
+client-side validation routines depend on.  
+
+5. The textarea should be used when the input field requires multiple lines of text (longer input). 
