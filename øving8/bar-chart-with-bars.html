@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tax forms: Bar chart with lines</title>
+    <meta charset="UTF-8">
+    <script src="taxForms.js"></script>
+  </head>
+  <body>
+
+    <canvas id="chart" width="700" height="550"></canvas>
+
+    <script>
+      const canvas = document.getElementById('chart');
+      const context = canvas.getContext('2d');
+
+      /* Draw a line from (fromX, fromY) to (toX, toY) */
+      function drawLine(fromX, fromY, toX, toY) {
+        context.beginPath();
+        context.moveTo(toX, toY);
+        context.lineTo(fromX, fromY);
+        context.stroke();
+      }
+
+      /* Draw a text (string) on (x, y) */
+      function drawText(text, x, y) {
+        context.fillStyle = 'black';
+        context.fillText(text, x, y);
+      }
+
+      /* Draw a text and with a line to its right */
+      function drawLineWithText(text, fromX, fromY, toX, toY) {
+        drawText(text, fromX - 50, fromY + 10);
+        drawLine(fromX, fromY, toX, toY);
+      }
+
+      function drawRectangle(x,y,width,height,color){
+          context.beginPath()
+          context.fillStyle = color;
+          context.fillRect(x, y, width, height)
+          
+          context.stroke()
+      }
+
+      function drawRectangleWithText(text,x,y,width,height,color){
+        drawRectangle(x,y,width,height,color)
+        drawText(text,x + width + 5,y + height/2)
+      }
+
+      /* Insert your code here. */
+
+      const xMin = 50
+      const xMax = canvas.width - 150
+      const offset = 50
+      for(var i = 10; i > 0; i--){
+        console.log(i)
+        drawLineWithText(i * 1e5,xMin,canvas.height - (i*offset),xMax,canvas.height - (i*offset))
+      }
+
+      drawRectangleWithText("income",canvas.width - 140,50,50,25,'red')
+      drawRectangleWithText("wealth",canvas.width - 140,80,50,25,'blue')
+      drawRectangleWithText("wealth",canvas.width - 140,80,50,25,'blue')
+
+      function normalizeValue(value,maxValue){
+        return (value - 0) / (maxValue - 0)
+      }
+
+
+      
+      const graphMargin = 75
+      const incomeWealthDelta = 20
+      const diff = (canvas.width - 2* graphMargin)/taxForms.length
+      const columnWidth = 40
+
+
+
+      for(var i=0; i < taxForms.length; i++){
+        var currentPerson = taxForms[i]
+        console.log(currentPerson.income)
+        console.log(normalizeValue(currentPerson.income,1e6))
+        console.log(normalizeValue(currentPerson.income,1e6)*canvas.height)
+        drawRectangle(graphMargin + diff*i,canvas.height - normalizeValue(currentPerson.income,1.1e6)*canvas.height,columnWidth,normalizeValue(currentPerson.income,1.1e6)*canvas.height, 'red')
+        drawRectangle(graphMargin + diff*i + 50,canvas.height - normalizeValue(currentPerson.wealth,1.1e6)*canvas.height,columnWidth,normalizeValue(currentPerson.wealth,1.1e6)*canvas.height, 'blue')
+        drawText(currentPerson.realName,diff*i + (graphMargin + incomeWealthDelta + 2*columnWidth),canvas.height )
+      }
+
+
+      //TEST SPØRMÅL 5
+      const countries = ['Norway', 'Sweden', 'Denmark', 'New Zealand'];
+     // const countriesStartingWithN = [];
+
+      const countriesStartingWithN = countries.filter(countries => countries[0] === "N")
+      console.log(countriesStartingWithN)
+      
+    </script>
+  </body>
+</html>
+
+
